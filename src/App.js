@@ -1,32 +1,83 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
+import {
+  Flex,
+  Text,
+  Spinner,
+  Alert,
+  AlertIcon,
+  AlertDescription,
+} from '@chakra-ui/core'
 
-const containerStyle = {
-  background: '#dadada',
-  width: 250,
-  height: 250,
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  padding: 50,
-  textAlign: 'center',
-}
+import { uploadFromBlobAsync } from './storage'
 
 function App() {
-  const onDrop = useCallback((acceptedFiles) => {
-    // Do something with the files
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(null)
+  const [message, setMessage] = useState(null)
+  const onDrop = useCallback(async (acceptedFiles) => {
+    const file = acceptedFiles?.[0]
+
+    if (!file) {
+      return
+    }
+
+    setIsLoading(true)
+    setError(null)
+    setMessage(null)
+
+    try {
+      await uploadFromBlobAsync({
+        blobUrl: URL.createObjectURL(file),
+        name: `${file.name}_${Date.now()}`,
+      })
+    } catch (e) {
+      setIsLoading(false)
+      setError(e.message)
+      return
+    }
+
+    setIsLoading(false)
+    setMessage('File was uploaded 👍')
   }, [])
+
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
   return (
-    <div style={containerStyle} {...getRootProps()}>
-      <input {...getInputProps()} />
-      {isDragActive ? (
-        <p>Drop the files here ...</p>
-      ) : (
-        <p>Drag 'n' drop some files here, or click to select files</p>
+    <>
+      <Flex
+        bg="#dadada"
+        w={250}
+        h={250}
+        justify="center"
+        align="center"
+        p={50}
+        m={2}
+        borderRadius={5}
+        textAlign="center"
+        {...getRootProps()}
+      >
+        <input {...getInputProps()} />
+        {isLoading ? (
+          <Spinner />
+        ) : isDragActive ? (
+          <Text>Drop the files here...</Text>
+        ) : (
+          <Text>Drag 'n' drop some files here, or click to select files</Text>
+        )}
+      </Flex>
+      {(error || message) && (
+        <Alert
+          status={error ? 'error' : 'success'}
+          w={250}
+          borderRadius={5}
+          m={2}
+        >
+          <AlertIcon />
+          <AlertDescription w={200}>{error || message}</AlertDescription>
+        </Alert>
       )}
-    </div>
+    </>
   )
 }
 
