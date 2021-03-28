@@ -1,24 +1,19 @@
 {
   "name": "drop-and-store",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
-    "@firebase/app": "^0.6.11",
-    "@firebase/storage": "^0.3.43",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-dropzone": "^11.2.0",
-    "react-scripts": "3.4.3"
+    "@firebase/app": "^0.6.17",
+    "@firebase/storage": "^0.4.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-dropzone": "^11.3.2",
+    "react-scripts": "4.0.3"
   },
   "scripts": {
     "dev": "PORT=3006 react-scripts start",
     "start": "PORT=3006 react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,6 +31,6 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^2.1.2"
+    "prettier": "^2.2.1"
   }
 }
