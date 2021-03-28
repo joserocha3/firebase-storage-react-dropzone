@@ -4,16 +4,19 @@
   "private": true,
   "dependencies": {
     "@chakra-ui/core": "^1.0.0-rc.8",
-    "@firebase/app": "^0.6.11",
-    "@firebase/storage": "^0.3.43",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "framer-motion": "^2.9.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-dropzone": "^11.2.0",
-    "react-scripts": "3.4.3"
+    "@chakra-ui/react": "^1.4.1",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@firebase/app": "^0.6.17",
+    "@firebase/storage": "^0.4.5",
+    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^13.0.16",
+    "framer-motion": "^4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-dropzone": "^11.3.2",
+    "react-scripts": "4.0.3"
   },
   "scripts": {
     "dev": "PORT=3006 react-scripts start",
@@ -38,6 +41,6 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^2.1.2"
+    "prettier": "^2.2.1"
   }
 }

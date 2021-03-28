@@ -7,7 +7,7 @@ import {
   Alert,
   AlertIcon,
   AlertDescription,
-} from '@chakra-ui/core'
+} from '@chakra-ui/react'
 
 import { uploadFromBlobAsync } from './storage'
 
