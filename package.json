@@ -9,9 +9,6 @@
     "@emotion/styled": "^11",
     "@firebase/app": "^0.6.17",
     "@firebase/storage": "^0.4.5",
-    "@testing-library/jest-dom": "^5.11.10",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^13.0.16",
     "framer-motion": "^4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -21,9 +18,7 @@
   "scripts": {
     "dev": "PORT=3006 react-scripts start",
     "start": "PORT=3006 react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
