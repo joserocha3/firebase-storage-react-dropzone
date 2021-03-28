@@ -1,9 +1,8 @@
 {
   "name": "drop-and-store",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
-    "@chakra-ui/core": "^1.0.0-rc.8",
     "@chakra-ui/react": "^1.4.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
